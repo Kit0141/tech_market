@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input name="first" type="number">
+<input name="second" type="number">
+сумма равна <span id="sum"></span>
+<button onclick="getSum()"> Посчитать</button>
+</body>
+</html>
+<script>
+    function getSum() {
+        fetch('http://127.0.0.1:8000/sum/?' + new URLSearchParams({
+            first: document.querySelector('input[name="first"]').value,
+            second: document.querySelector('input[name="second"]').value,
+        })
+        ).then(function (response) {
+            return response.text().then(function (text) {
+                document.querySelector('#sum').innerHTML = text
+            });
+        })
+    }
+</script>
