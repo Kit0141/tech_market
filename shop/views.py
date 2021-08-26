@@ -1,14 +1,24 @@
+import json
+
 from django.http import HttpResponse, HttpResponseGone
 from django.shortcuts import render
 
 
-def index(request):
+def about(request):
     return HttpResponse("<h2>Главная</h2>")
 
 
-def about(request):
-    return HttpResponse("<h2>О сайте</h2>")
+def index(request):
+    header = "Personal Data"  # обычная переменная
+    langs = ["English", "German", "Spanish"]  # массив
+    user = json.dumps({"name": "Tom", "age": 23})
+    addr = {"Абрикосовая", 23, 45}  # кортеж
 
+    data = {"header": header,
+            "langs": langs,
+            "user": user,
+            "address": addr}
+    return render(request, "index.html", context=data)
 
 def sum_view(request):
     context = {

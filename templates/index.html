@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="{% static 'images/fire.png' %}" alt="">
+<h1>{{ header }}</h1>
+{% for i in user.values %}
+    <h1>{{ i }}</h1>
+{% endfor %}
+</body>
+</html>
+<script>
+    console.log("{{ user }}")
+    let i = Array.from("{{ user }}")
+    console.log(i)
+</script>
