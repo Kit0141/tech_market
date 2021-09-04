@@ -9,16 +9,9 @@ def about(request):
 
 
 def index(request):
-    header = "Personal Data"  # обычная переменная
-    langs = ["English", "German", "Spanish"]  # массив
-    user = json.dumps({"name": "Tom", "age": 23})
-    addr = {"Абрикосовая", 23, 45}  # кортеж
 
-    data = {"header": header,
-            "langs": langs,
-            "user": user,
-            "address": addr}
-    return render(request, "index.html", context=data)
+    return render(request, "index.html")
+
 
 def sum_view(request):
     context = {
@@ -32,7 +25,7 @@ def sum_view(request):
 def sum_two_nums(request):
     first = int(request.GET.get("first"))
     second = int(request.GET.get("second"))
-    return HttpResponse(first+second)
+    return HttpResponse(first + second)
 
 
 def contact(request):
