@@ -5,30 +5,39 @@ from django.shortcuts import render
 
 
 def about(request):
-    return HttpResponse("<h2>Главная</h2>")
+    return render(request, "about.html")
 
 
 def index(request):
-
     return render(request, "index.html")
 
 
-def sum_view(request):
-    context = {
-        'first': 1,
-        'second': 1,
-        'sum': 2
-    }
-    return render(request, 'sum.html', context)
-
-
-def sum_two_nums(request):
-    first = int(request.GET.get("first"))
-    second = int(request.GET.get("second"))
-    return HttpResponse(first + second)
 
 
 def contact(request):
-    category = request.GET.get("category", "")
-    return HttpResponseGone(f"<h2>Контакты {category}</h2> "
-                            f"<a href='/contact/{category}/'>ссылка</a> ")
+    return render(request, "contact.html")
+
+
+def brand(request):
+    return render(request, "brand.html")
+
+
+def special(request):
+    return render(request, "special.html")
+
+
+# def sum_view(request):
+#     context = {
+#         'first': 1,
+#         'second': 1,
+#         'sum': 2
+#     }
+#     return render(request, 'sum.html', context)
+
+
+# def sum_two_nums(request):
+#     first = int(request.GET.get("first"))
+#     second = int(request.GET.get("second"))
+#     return HttpResponse(first + second)
+
+
